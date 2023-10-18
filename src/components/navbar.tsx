@@ -120,6 +120,24 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
           >
             Tadbirlar
           </Button>
+          <Button
+            onClick={() => {
+              navigate("/home5");
+            }}
+            sx={{
+              background: "none",
+              color: "#FFF",
+              ":hover": {
+                background: "none", // O'zgarishi mumkin
+                color: "blue", // O'zgarishi mumkin
+              },
+            }}
+            className="title"
+            // @ts-ignore
+            size={14}
+          >
+            Yutuqlarimiz
+          </Button>
         </Box>
         <Box>
           <Button

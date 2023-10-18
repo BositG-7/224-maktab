@@ -16,7 +16,7 @@ const Home: FunctionComponent<HomeProps> = () => {
     <>
       <Flex justify="center" direction="column" align="center">
         <Flex
-          h="170vh"
+          h="150vh"
           justify="center"
           gap={20}
           align="center"
@@ -25,20 +25,18 @@ const Home: FunctionComponent<HomeProps> = () => {
           direction="column"
         >
           <Flex justify="center" align="center" gap={20} direction="column">
-            <Title size="20px" maw={650}>
-              Olmazor tumani 224-maktabda Ona tili va adabiyot metod birlashmasi
-              faxriy maktabimizning eng bilimli ustozlaridan biri Dadajonova
-              Xadicha Djuraevna tashabbuslari bilan "Kitoblar-dunyosi
-              shaydosimiz " shiori ostida 6- sinf o‘quvchilari bilan birgalikda
-              Gafur Gulomning xayot va ijodi, asarlari xamda Shum bola asarini
-              kengroq o‘rganish uchun syujetli dars mashg‘uloti bo‘lib o‘tdi...
-            </Title>
-            <img
-              src={img2}
-              style={{ borderRadius: "5%" }}
-              width={800}
-              height={500}
-              alt=""
+            <video
+              style={{
+                width: 800,
+                height: "500px",
+                borderRadius: "25px",
+                border: "1px solid #000",
+              }}
+              autoPlay
+              loop
+              muted
+              controls
+              src={video}
             />
           </Flex>
           <Flex justify="center" align="center" w="100%" gap="20px" maw={800}>
@@ -83,19 +81,15 @@ const Home: FunctionComponent<HomeProps> = () => {
             </Title>
           </Flex>
           <Flex justify="center" align="center" w="70%" gap="20px">
-            <video
-              style={{
-                width: 380,
-                height: "auto",
-                borderRadius: "25px",
-                border: "1px solid #000",
-              }}
-              autoPlay
-              loop
-              muted
-              controls
-              src={video}
-            />
+            <img src={img2} width={300} height={300} alt="" />
+            <Title size="20px" maw={650}>
+              Olmazor tumani 224-maktabda Ona tili va adabiyot metod birlashmasi
+              faxriy maktabimizning eng bilimli ustozlaridan biri Dadajonova
+              Xadicha Djuraevna tashabbuslari bilan "Kitoblar-dunyosi
+              shaydosimiz " shiori ostida 6- sinf o‘quvchilari bilan birgalikda
+              Gafur Gulomning xayot va ijodi, asarlari xamda Shum bola asarini
+              kengroq o‘rganish uchun syujetli dars mashg‘uloti bo‘lib o‘tdi...
+            </Title>
           </Flex>
         </Flex>
       </Flex>

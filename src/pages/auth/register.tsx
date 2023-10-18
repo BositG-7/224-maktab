@@ -4,7 +4,8 @@ import * as yup from "yup";
 import { Box, Button, Flex, InputBase, Paper, PasswordInput, Text } from "@mantine/core";
 import { useForm, yupResolver } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-
+import { Api, Types } from "modules/auth";
+import { clearSessionReset, clearSessionVerification, getSessionVerification } from "services/store";
 
 import cursor from "../../assets/images/cursor.png";
 import threeD from "../../assets/images/threeD.png";
@@ -20,7 +21,7 @@ const schema = yup.object({
 });
 
 const Register = () => {
-   const { getInputProps, onSubmit } = useForm<any>({
+   const { getInputProps, onSubmit } = useForm<Types.IForm.Register>({
       initialValues: {
          first_name: "",
          last_name: "",
@@ -32,13 +33,34 @@ const Register = () => {
       validate: yupResolver(schema)
    });
 
+   useEffect(() => {
+      clearSessionReset();
+   }, []);
 
    const [loading, setLoading] = useState(false);
    const navigate = useNavigate();
-   const onRegister = async (data: any) => {
+   const onRegister = async (data: Types.IForm.Register) => {
+      setLoading(true);
 
-      console.log(data);
-      
+      const { email }: any = getSessionVerification();
+
+      try {
+         const requestData = {
+            ...data,
+            email
+         };
+
+         await Api.Register(requestData);
+
+         navigate("auth/register");
+         setLoading(false);
+         clearSessionVerification();
+      } catch (err: any) {
+         notifications.show({
+            message: err.data.username
+         });
+         setLoading(false);
+      }
    };
 
    return (

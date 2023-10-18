@@ -12,9 +12,17 @@ import {
   Title,
 } from "@mantine/core";
 import { useForm, yupResolver } from "@mantine/form";
+import { Api, Types } from "modules/auth";
+import {
+  clearSession,
+  clearSessionVerification,
+  setSession,
+} from "services/store";
 
 import cursor from "../../assets/images/cursor.png";
 import threeD from "../../assets/images/threeD.png";
+
+import "../../assets/styles/login.scss";
 
 interface LoginProps {}
 
@@ -24,7 +32,7 @@ const schema = yup.object({
 });
 
 function Login(props: LoginProps) {
-  const form = useForm<any>({
+  const form = useForm<Types.IForm.Login>({
     initialValues: {
       username: "",
       password: "",
@@ -32,10 +40,29 @@ function Login(props: LoginProps) {
     validate: yupResolver(schema),
   });
 
+  useEffect(() => {
+    clearSessionVerification();
+    clearSession();
+  }, []);
   const [loading, setLoading] = useState(false);
 
-  const onLogin = async (par: any) => {
-    console.log(par);
+  const onLogin = async (par: Types.IForm.Login) => {
+    setLoading(true);
+    try {
+      const { data } = await Api.Login(par);
+
+      const tokens: any = data;
+
+      setSession(tokens);
+
+      window.location.href = "/";
+    } catch (err: any) {
+      console.log(err);
+
+      // notifications.show(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

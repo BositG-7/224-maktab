@@ -25,7 +25,7 @@ function Footer() {
                 style={{ color: "white" }}
                 href="https://yandex.uz/maps/org/27320269420/?ll=69.222136%2C41.347290&z=15"
               >
-                Maktabimiz addresi
+                Maktabimiz manzili
               </a>
             </Title>
           </Flex>

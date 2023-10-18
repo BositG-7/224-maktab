@@ -26,7 +26,7 @@ const Home: FunctionComponent<HomeProps> = () => {
         direction="column"
       >
         <Flex justify="center" align="center" w="70%" gap="20px" maw={500}>
-          <Title size="xl">
+          <Title size="25px">
             Mahoratli ustozlar dars jarayonlarini qiziqarli va mazmunli tashkil
             etadilar O‘quvchilar ishtiyoq bilan dars tayyorlashadi
           </Title>
