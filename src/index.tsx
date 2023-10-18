@@ -11,33 +11,37 @@ import { QueryParamProvider } from "use-query-params";
 import { ReactRouter6Adapter } from "use-query-params/adapters/react-router-6";
 
 import Navbar from "components/navbar";
+import Footer from "components/footer";
 
 // React uygulamasını oluşturmak için bir kök (root) oluşturun
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 // React Query istemcisi oluşturun
 const client = new QueryClient();
 
 // Kök öğeyi render et
 root.render(
-   <BrowserRouter>
-      <QueryParamProvider adapter={ReactRouter6Adapter}>
-         <QueryClientProvider client={client}>
-            <MantineProvider>
-               {/* Auth bileşeni içindeki alt bileşenleri oluşturun */}
-               
-                  <>
-                     {/* Sağ üst köşede bildirimleri göstermek için bir bildirim bileşeni ekleyin */}
-                     <Notifications position="top-right" />
+  <BrowserRouter>
+    <QueryParamProvider adapter={ReactRouter6Adapter}>
+      <QueryClientProvider client={client}>
+        <MantineProvider>
+          {/* Auth bileşeni içindeki alt bileşenleri oluşturun */}
 
-                     {/* Sayfa üstündeki gezinme çubuğunu oluşturun */}
-                     <Navbar />
+          <>
+            {/* Sağ üst köşede bildirimleri göstermek için bir bildirim bileşeni ekleyin */}
+            <Notifications position="top-right" />
 
-                     {/* Sayfa içeriğini ve rotaları oluşturun */}
-                     <Routes />
-                  </>
-            </MantineProvider>
-         </QueryClientProvider>
-      </QueryParamProvider>
-   </BrowserRouter>
+            {/* Sayfa üstündeki gezinme çubuğunu oluşturun */}
+            <Navbar />
+
+            {/* Sayfa içeriğini ve rotaları oluşturun */}
+            <Routes />
+            <Footer />
+          </>
+        </MantineProvider>
+      </QueryClientProvider>
+    </QueryParamProvider>
+  </BrowserRouter>
 );
