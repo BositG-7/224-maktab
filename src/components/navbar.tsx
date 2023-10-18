@@ -3,11 +3,13 @@ import { FunctionComponent } from "react";
 
 import logo from "../assets/logode.jpg";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "modules/auth/context";
 
 interface NavbarProps {}
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
   const navigate = useNavigate();
+  const { user, methods } = useAuth();
 
   return (
     <>
@@ -142,12 +144,17 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
         <Box>
           <Button
             onClick={() => {
-              navigate("/auth");
+              if (user) {
+                methods.logout();
+                navigate("/");
+              } else {
+                navigate("/auth");
+              }
             }}
             variant="gradient"
             gradient={{ from: "blue", to: "red", deg: 90 }}
           >
-            Kirish
+            {user ? "Logout" : "Kirish"}
           </Button>
         </Box>
       </Box>
