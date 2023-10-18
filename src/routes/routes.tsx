@@ -9,6 +9,9 @@ const Routes = () => {
 
   const verification = getSessionVerification().email;
   const reset = getSessionReset().email;
+
+  console.log(user);
+
   return (
     <Switch>
       <Route path="" element={<Application.Home.Home />} />

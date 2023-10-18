@@ -146,7 +146,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             onClick={() => {
               if (user) {
                 methods.logout();
-                navigate("/");
+                window.location.href = "/";
               } else {
                 navigate("/auth");
               }
