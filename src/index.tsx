@@ -13,6 +13,7 @@ import { ReactRouter6Adapter } from "use-query-params/adapters/react-router-6";
 import Navbar from "components/navbar";
 import Footer from "components/footer";
 
+import "../src/components/style.css";
 // React uygulamasını oluşturmak için bir kök (root) oluşturun
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

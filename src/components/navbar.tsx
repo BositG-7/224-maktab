@@ -50,7 +50,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
           <Button
             sx={{
               background: "none",
-              color: "black",
+              color: "#FFF",
               ":hover": {
                 background: "none", // O'zgarishi mumkin
                 color: "blue", // O'zgarishi mumkin
@@ -72,7 +72,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             }}
             sx={{
               background: "none",
-              color: "black",
+              color: "#FFF",
               ":hover": {
                 background: "none", // O'zgarishi mumkin
                 color: "blue", // O'zgarishi mumkin
@@ -90,7 +90,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             }}
             sx={{
               background: "none",
-              color: "black",
+              color: "#FFF",
               ":hover": {
                 background: "none", // O'zgarishi mumkin
                 color: "blue", // O'zgarishi mumkin
@@ -101,6 +101,24 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             size={14}
           >
             Darslar
+          </Button>
+          <Button
+            onClick={() => {
+              navigate("/home4");
+            }}
+            sx={{
+              background: "none",
+              color: "#FFF",
+              ":hover": {
+                background: "none", // O'zgarishi mumkin
+                color: "blue", // O'zgarishi mumkin
+              },
+            }}
+            className="title"
+            // @ts-ignore
+            size={14}
+          >
+            Tadbirlar
           </Button>
         </Box>
         <Box>

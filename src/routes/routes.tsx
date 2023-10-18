@@ -8,6 +8,7 @@ const Routes = () => {
       <Route path="" element={<Application.Home.Home />} />
       <Route path="home2" element={<Application.Home2.Home2 />} />
       <Route path="home3" element={<Application.Home3.Home3 />} />
+      <Route path="home4" element={<Application.Home4.Home4 />} />
 
       <Route
         path="auth"
